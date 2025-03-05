@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ITIan{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'logout' %}">Logout</a>
+
+        </nav>
+
+    </header>
+    <a href="{% url 'trainee_list' %}"><button>Trainee</button></a>
+    <a href="{% url 'course_list' %}"><button>Courses</button></a>
+    <main>
+        {% block content %}
+        <h1>Welcome to ITIan</h1>
+        <p>This is the homepage.</p>
+
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>

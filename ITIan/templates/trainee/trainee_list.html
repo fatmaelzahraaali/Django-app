@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Trainee List{% endblock %}
+{% block content %}
+<h2>Trainee List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Trainee Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trainee in trainees %}
+        <tr>
+            <td>{{ trainee.name }}</td>
+            <td>
+                <a href="{% url 'update_trainee' trainee.id %}" class="btn btn-edit">Edit</a>
+                <a href="{% url 'delete_trainee' trainee.id %}" class="btn btn-delete"
+                    onclick="return confirm('Are you sure?');">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">No trainees available</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'add_trainee' %}" class="btn btn-add">Add Trainee</a>
+{% endblock %}

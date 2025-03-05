@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Course List{% endblock %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <label for="name">Course Name:</label>
+    <input type="text" name="name" value="{{ course.name }}" required />
+    <button type="submit">Update Course</button>
+
+
+</form>

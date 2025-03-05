@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Add Course{% endblock %}
+{% block content %}
+<div class="form-container">
+    <h2>Add Course</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">Course Name</label>
+        <input type="text" name="name" required />
+        <button type="submit" class="btn-save">Save</button>
+
+    </form>
+</div>
+{% endblock %}
