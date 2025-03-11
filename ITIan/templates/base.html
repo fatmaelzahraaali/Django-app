@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}ITIan{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static '/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
@@ -24,8 +24,8 @@
     <a href="{% url 'course_list' %}"><button>Courses</button></a>
     <main>
         {% block content %}
-        <h1>Welcome to ITIan</h1>
-        <p>This is the homepage.</p>
+        <h1 style="text-align: center;">Welcome to ITIan</h1>
+        <p style="text-align: center;"> This is the homepage.</p>
 
         {% endblock %}
     </main>
