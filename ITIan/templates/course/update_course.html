@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Course List{% endblock %}
+{% block title %}Course List{% endblock title%}
 {% block content %}
 <form method="POST">
     {% csrf_token %}
@@ -9,4 +9,4 @@
     <button type="submit">Update Course</button>
 
 
-</form>
+</form>{% endblock content %}

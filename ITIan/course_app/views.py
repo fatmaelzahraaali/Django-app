@@ -21,9 +21,9 @@ def add_course(request):
     return render(request, "course/add_course.html", {"form": form})
 
 
-def update_course(request, course_id):
+def update_course(request, id):
     """Handle updating an existing course."""
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(Course, id=id)
     if request.method == "POST":
         form = CourseForm(request.POST, instance=course)
         if form.is_valid():
