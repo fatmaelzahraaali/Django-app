@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Mentor List</h2>
+<a href="{% url 'add_mentor' %}" class="btn btn-primary">Add Mentor</a>
+<ul>
+    {% for mentor in mentors %}
+    <li>{{ mentor.name }} - {{ mentor.email }} </li>
+    {% endfor %}
+</ul>
+{% endblock %}
