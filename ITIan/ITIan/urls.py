@@ -18,17 +18,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from ITIan import views
-from .views import register, user_login, user_logout
-
+from trainee_app import views as trainee_views
+from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", views.home, name="home"),
     path("trainee/", include("trainee_app.urls")),
     path("course/", include("course_app.urls")),
-    path("mentor/", include("mentor.urls")),
-    path("register/", views.register, name="register"),
-    path("login/", views.login, name="login"),
-    path("logout/", views.logout, name="logout"),
-    path("", views.home, name="home"), 
+    path("mentor/", include("mentor_app.urls")),
+    path("register/", trainee_views.register, name="register"),
+    path(
+        "login/",
+        auth_views.LoginView.as_view(template_name="auth/login.html"),
+        name="login",
+    ),
+    path("logout/", auth_views.LogoutView.as_view(next_page="login"), name="logout"),
 ]

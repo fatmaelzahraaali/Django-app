@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "course_app.apps.CourseAppConfig",
     "trainee_app.apps.TraineeAppConfig",
-    "mentor.apps.MentorConfig",
+    "mentor_app.apps.MentorAppConfig",
 ]
 
 MIDDLEWARE = [
@@ -87,8 +87,10 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "login"
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "trainee_list"  # Redirect after login
+LOGOUT_REDIRECT_URL = "login"  # Redirect after logout
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
