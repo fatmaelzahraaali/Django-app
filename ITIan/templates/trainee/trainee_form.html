@@ -1,11 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Update Trainee{% else %}Add Trainee{% endif %}</h2>
+
 <form method="post">
     {% csrf_token %}
-    <label for="id_course">Select Course:</label>
-    <select name="course" id="id_course">
-        {% for course in courses %}
-        <option value="{{ course.id }}">{{ course.name }}</option>
-        {% endfor %}
-        {% endfor %}
-    </select>
+    <table>
+        {{ form.as_table }}
+    </table>
     <button type="submit">Save</button>
 </form>
+
+<a href="{% url 'trainee_list' %}">Back to Trainee List</a>
+{% endblock %}
